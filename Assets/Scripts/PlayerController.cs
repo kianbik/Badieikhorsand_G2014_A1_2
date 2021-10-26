@@ -21,7 +21,7 @@ public class PlayerController : MonoBehaviour
     float speed = 0.0f;
     private Vector3 m_touchesEnded;
     GameObject player;
-
+    public int health;
 
 
 
@@ -70,6 +70,17 @@ public class PlayerController : MonoBehaviour
         }
 
         m_rigidBody.MovePosition(m_rigidBody.position + movement * moveSpeed * Time.fixedDeltaTime);
+
+    }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.gameObject.tag == "Health")
+        {
+            PlayerInfo1.healthValue += 1;
+
+        Destroy(collision.gameObject);
+        }
+        
 
     }
 }

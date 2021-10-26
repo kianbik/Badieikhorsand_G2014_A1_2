@@ -64,4 +64,8 @@ public class BulletController : MonoBehaviour
             bulletManager.ReturnBullet(this.gameObject, type);
         }
     }
+    void OnCollisionEnter2D(Collision2D collision)
+    {
+        Destroy(gameObject);
+    }
 }
